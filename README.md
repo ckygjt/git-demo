@@ -64,11 +64,23 @@ npm run dev
 
 打开 `http://localhost:5173`。
 
-### 3.4 无前端快速验证
+### 3.4 命令行跑通闭环（无需前端）
 
 ```powershell
-python scripts/demo_flow.py --image samples/real/01.jpg --text "七天美白，医美级效果"
+# 图文联合检测，直接打印风险报告
+python scripts/demo_flow.py --image samples/fake/fake_01.jpg --text "七天美白，医美级效果"
+
+# 自动生成带拼接痕迹的示例图并检测
+python scripts/demo_flow.py --make-demo-image --text "医美级效果，100%有效"
+
+# 生成 real/fake/gray 三类样本图
+python scripts/make_samples.py
+
+# 文案规则层基线评估（输出召回率/误报率）
+python scripts/eval_text.py
 ```
+
+> 未配置 API Key 时自动进入**降级模式**，仅用本地取证与规则库出报告，演示不会中断。
 
 ---
 
@@ -122,8 +134,20 @@ git checkout develop
 | 板块 | 内容 | 状态 |
 | --- | --- | --- |
 | 1 | 仓库骨架 + 方案文档 | ✅ |
-| 2 | 图像取证 + 文案检测模块 | ⬜ |
-| 3 | Agent 决策层 | ⬜ |
-| 4 | 前端演示界面 | ⬜ |
-| 5 | 样本集 + 端到端跑通 | ⬜ |
+| 2 | 图像取证 + 文案检测模块 | ✅ |
+| 3 | Agent 决策层 + API | ✅ |
+| 4 | 前端演示界面 | ✅ |
+| 5 | 样本集 + 端到端跑通 | ✅ |
 | 6 | 路演 PPT + 提交 | ⬜ |
+
+---
+
+## 七、常见问题
+
+| 现象 | 原因 / 解决 |
+| --- | --- |
+| 前端显示"未能连接后端"并展示样例数据 | 后端未启动；先 `uvicorn app.main:app --reload --port 8000`，前端会自动恢复真实检测 |
+| `npm install` 报 `spawn powershell ENOENT` | 系统 PATH 缺 PowerShell；加参数 `--script-shell="C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"` |
+| `vite build` 提示缺少 `@esbuild/win32-x64` / `@rollup/rollup-win32-x64-msvc` | 平台二进制未装上；单独执行 `npm install --no-save @esbuild/win32-x64@0.21.5` 后再构建 |
+| 报告里出现"降级模式" | 未配置 API Key；复制 `.env.example` 为 `.env` 并填入 Key 即可启用大模型软证据 |
+| 图片上传被拒 | 默认限制 10MB，可在 `.env` 调 `MAX_UPLOAD_MB` |
