@@ -59,3 +59,6 @@ tmp/
 coverage/
 .pytest_cache/
 .ruff_cache/
+
+# CodeBuddy 本地工具数据（计划/团队缓存），不入库
+.codebuddy/
