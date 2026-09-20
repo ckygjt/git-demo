@@ -94,7 +94,8 @@ python scripts/eval_text.py
 │   ├── 01-赛题分析与总体方案.md  # 赛题拆解、创新点、演示剧本
 │   ├── 02-技术架构.md           # 架构、数据契约、算法细节
 │   ├── 03-Git协作规范.md        # 分支策略、提交规范、冲突处理
-│   └── 04-赛程计划与任务看板.md  # 四周计划、分工、提交清单
+│   ├── 04-赛程计划与任务看板.md  # 四周计划、分工、提交清单
+│   └── 05-答辩与提交指南.md      # 路演剧本、演示SOP、提交自检
 ├── backend/                  # FastAPI 服务
 │   ├── requirements.txt
 │   └── app/
@@ -104,8 +105,12 @@ python scripts/eval_text.py
 │       └── agent/            # RiskAgent 决策层
 ├── frontend/                 # React + Vite 演示界面
 ├── samples/                  # 测试样本（真/假/灰三类）
+├── deliverables/             # 提交物（路演 PPT 等）
 └── scripts/
-    └── demo_flow.py          # 端到端演示脚本
+    ├── demo_flow.py          # 端到端演示脚本
+    ├── make_samples.py       # 生成合成样本图
+    ├── eval_text.py          # 文案规则层基线评估
+    └── build_pptx.js         # 生成路演 PPT
 ```
 
 ---
@@ -138,7 +143,7 @@ git checkout develop
 | 3 | Agent 决策层 + API | ✅ |
 | 4 | 前端演示界面 | ✅ |
 | 5 | 样本集 + 端到端跑通 | ✅ |
-| 6 | 路演 PPT + 提交 | ⬜ |
+| 6 | 路演 PPT + 提交 | ✅ |
 
 ---
 
