@@ -46,10 +46,16 @@ def make_fake(idx: int, rng: np.random.Generator) -> None:
 
 
 def make_gray(idx: int, rng: np.random.Generator) -> None:
-    """灰色地带：仅做轻度磨皮，无外来区域，考验 Agent 是否一刀切。"""
+    """灰色地带:局部轻度磨皮(模拟"使用前后"对比里局部修图),无外来区域，
+    考验 Agent 是否能在轻度修饰与真正篡改之间分级,而非一刀切。"""
     img = Image.fromarray(_base(rng).astype(np.uint8))
-    img = img.filter(ImageFilter.GaussianBlur(1.2))
-    arr = np.asarray(img, dtype=np.float32)
+    # 局部磨皮:仅对中央区域做轻度模糊,全局噪点保持真实,ELA 应能捕捉到局部异常
+    arr_full = np.asarray(img, dtype=np.float32)
+    h, w = img.size[1], img.size[0]
+    y0, x0, ph, pw = h // 4, w // 4, h // 2, w // 2
+    region = img.crop((x0, y0, x0 + pw, y0 + ph)).filter(ImageFilter.GaussianBlur(1.5))
+    arr = arr_full.copy()
+    arr[y0 : y0 + ph, x0 : x0 + pw] = np.asarray(region, dtype=np.float32)
     arr = np.clip(arr + rng.normal(0, 2.0, arr.shape), 0, 255)
     _save(arr, OUT / "gray" / f"gray_{idx:02d}.jpg")
 

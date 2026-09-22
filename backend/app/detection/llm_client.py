@@ -30,7 +30,11 @@ def _build_client() -> OpenAI | None:
 def get_client() -> OpenAI | None:
     global _client
     if _client is None:
-        _client = _build_client()
+        try:
+            _client = _build_client()
+        except Exception as exc:  # SDK/依赖异常也降级，绝不能拖垮接口
+            print(f"[llm] 客户端构建失败，自动降级：{exc}")
+            return None
     return _client
 
 
