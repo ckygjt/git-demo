@@ -40,9 +40,9 @@ datasets/
 *.pth
 *.safetensors
 *.onnx
-samples/**/*.jpg
-samples/**/*.png
-!samples/README.md
+**/samples/**/*.jpg
+**/samples/**/*.png
+!**/samples/README.md
 
 # ============ 编辑器与系统 ============
 .vscode/
