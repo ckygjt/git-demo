@@ -378,3 +378,19 @@ config/thresholds.yaml   # 所有阈值集中管理
 | A40/A100（一次申请 2~4 小时） | **① 批量造假样本**：本地开源图像编辑/局部重绘模型（如 FLUX.1 Fill、SDXL Inpainting）在真实产品图上重绘出破损/漏液，比商用 API 便宜、可控、生成器更多样；**② 全量离线取证**：对整个数据集一次性跑 TruFor + AIGC 检测，结果缓存，供阈值校准与评估页使用；③ （可选）用自建数据对 AIGC 检测器做 logistic 校准 | 非必需，用于提升数据集质量与评估规模 |
 
 > 申请时机：P1 后段（真实照片拍完后）申请一次做①；P5 评估前申请一次做②。脚本提前在本机小样本跑通，上服务器只做批量。
+
+---
+
+## 12. 公开数据集调研（替代自建大批量造假样本）
+
+| 数据集 | 内容 | 许可/状态 | 用法 |
+| --- | --- | --- | --- |
+| JoyCN/ai-generated-ecommerce-images (HF) | 6031 张 AI 生成的售后场景图，12 类（包装破损、易碎品破裂、液体洒漏、错发、少件等）+ 标注 jsonl，体积 6.67GB | CC0，可直接用 | 作为 **fake 负样本池**：抽取 package_damage / fragile_broken / supplement_spill 子类，测 AIGC 检测与消融；非美妆，用于通用造假检测 |
+| 34data/ai-generated-ecommerce-damaged-product (HF) | 584 张 AI 生成电商破损图，616MB | 无数据卡，许可不明 | 仅内部实验，不入库、不写进交付物 |
+| OwensLab/CommunityForensics(-Small/-Eval) | 270 万生成图 + 配对真图，4803 个生成器 | CC-BY-4.0（Eval 仅非商业研究） | 校准 AIGC 检测器阈值；用 Small 子集即可，避免下载 206GB 的 Eval |
+| CASIA v2 / Columbia / COVERAGE / IMD2020 | 传统拼接、复制移动篡改，带 mask | 学术用途 | 校准篡改定位（TruFor/ELA）的召回，非美妆 |
+| FraudBench (Tristan0318/FraudBench) | 822 条真实评论样本、7928 图，6 种编辑模型造假；正是赛题场景 | 仓库仅评测代码，数据获取方式未公开（标 TBD） | 数据未放出前不依赖；可借鉴其评测维度；后续可邮件向作者索取 |
+
+**结论**：真实破损照片仍需自拍（美妆领域无公开真实数据）；造假样本用 CC0 的 JoyCN 数据集 + 自己用中转站的图像编辑能力生成美妆破损图补充，**不需要为此占用 A100**。AIGC 检测器的校准用 CommunityForensics-Small。
+
+> 中转站实测可用模型：gpt-5.5 等（无 gpt-4o），已配置到 .env（不入库）。
