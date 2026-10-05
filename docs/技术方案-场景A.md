@@ -273,8 +273,9 @@ data/
 
 ### 6.3 产品知识库示例
 ```yaml
-- sku_id: LRP-REVITALIFT-SERUM-30
-  name: 复颜玻尿酸水光充盈导入精华
+# 字段示意；具体 SKU 的容器、开口、规格等需按实物/官方页面核对后填写
+- sku_id: SKU-EXAMPLE-SERUM-30
+  name: 某精华（示例）
   spec: 30ml
   container: glass_bottle
   closure: dropper
@@ -283,7 +284,7 @@ data/
   possible_damage: [container_crack, leak, closure_broken]
   impossible_damage: [tube_burst]
   liquid: {color: 透明, viscosity: 低}
-  ref_images: [ref/LRP-REVITALIFT-SERUM-30_front.jpg]
+  ref_images: [ref/SKU-EXAMPLE-SERUM-30_front.jpg]
 ```
 
 ---
@@ -364,6 +365,16 @@ config/thresholds.yaml   # 所有阈值集中管理
 | # | 问题 | 影响 |
 | --- | --- | --- |
 | D1 | ~~是否有 GPU~~ **已确认：RTX 5070 Laptop 8GB** | TruFor、Community Forensics 推理可本地 GPU 运行；注意 50 系（Blackwell）需 **PyTorch ≥2.7 + CUDA 12.8** 版本，TruFor 等学术仓库若钉了旧版 torch 需适配，P0 先验证环境 |
+| D1+ | **另有 A40/A100 服务器（可短时申请数小时）** | 用途见下方"GPU 分工"，不是常驻依赖 |
 | D2 | 手上有哪家 VLM 的 API Key？（通义/OpenAI/Gemini/智谱/DeepSeek 等） | 决定 VLM-强 档默认模型 |
 | D3 | 编排器自研 vs LangGraph | 推荐自研；若想在答辩中强调框架可改 LangGraph，结构不变 |
 | D4 | 新代码直接在仓库根目录重建（旧版已归档） | 推荐是 |
+
+### GPU 分工
+
+| 资源 | 用途 | 是否必需 |
+| --- | --- | --- |
+| 本机 RTX 5070 8GB | 开发调试、演示时实时推理：Community Forensics（AIGC 检测）、CLIP 向量、人脸检测、TruFor 单图推理 | 推荐（无则 CPU 降级，速度变慢） |
+| A40/A100（一次申请 2~4 小时） | **① 批量造假样本**：本地开源图像编辑/局部重绘模型（如 FLUX.1 Fill、SDXL Inpainting）在真实产品图上重绘出破损/漏液，比商用 API 便宜、可控、生成器更多样；**② 全量离线取证**：对整个数据集一次性跑 TruFor + AIGC 检测，结果缓存，供阈值校准与评估页使用；③ （可选）用自建数据对 AIGC 检测器做 logistic 校准 | 非必需，用于提升数据集质量与评估规模 |
+
+> 申请时机：P1 后段（真实照片拍完后）申请一次做①；P5 评估前申请一次做②。脚本提前在本机小样本跑通，上服务器只做批量。
