@@ -1,0 +1,28 @@
+[
+  {"ticket_id": "T1001", "case": "U1 真实破损+人像美颜", "type": "refund_only", "reason": "商品破损", "description": "收到发现泵头断了，按不出来，自拍了一张给你们看", "images": ["T1001_1.jpg"], "order_id": "O1001", "account_id": "A001", "created_at": "2026-10-03T20:10:00", "status": "pending",
+   "label": {"truth": "real", "expected_verdict": "credible"}},
+  {"ticket_id": "T1002", "case": "U2 AI 生成漏液图", "type": "refund_only", "reason": "漏液", "description": "刚收到就漏了一大半，瓶子都是湿的", "images": ["T1002_1.jpg"], "order_id": "O1002", "account_id": "A002", "created_at": "2026-10-04T09:30:00", "status": "pending",
+   "label": {"truth": "fake", "risk_types": ["R1", "C4"], "expected_verdict": "high_risk"}},
+  {"ticket_id": "T1003", "case": "U3 同图多单", "type": "refund_only", "reason": "商品破损", "description": "罐子收到就裂了，没法用", "images": ["T1003_1.jpg"], "order_id": "O1003", "account_id": "A003", "created_at": "2026-10-05T14:00:00", "status": "pending",
+   "label": {"truth": "fake", "risk_types": ["R4"], "expected_verdict": "high_risk"}},
+  {"ticket_id": "T1004", "case": "U4 规格与订单不符", "type": "refund_only", "reason": "漏液", "description": "泵头一按就从侧面漏出来", "images": ["T1004_1.jpg"], "order_id": "O1004", "account_id": "A004", "created_at": "2026-10-05T10:20:00", "status": "pending",
+   "label": {"truth": "unknown", "risk_types": ["C1"], "expected_verdict": "doubtful_insufficient"}},
+  {"ticket_id": "T1005", "case": "U5 物理上不可能的损坏", "type": "refund_only", "reason": "商品破损", "description": "瓶身碎裂了，碎片到处都是", "images": ["T1005_1.jpg"], "order_id": "O1005", "account_id": "A005", "created_at": "2026-10-05T16:45:00", "status": "pending",
+   "label": {"truth": "unknown", "risk_types": ["C3"], "expected_verdict": "doubtful_insufficient"}},
+  {"ticket_id": "T1006", "case": "U6 物流轨迹有破损记录", "type": "refund_only", "reason": "包装破损", "description": "外面的盒子压扁了，里面罐子不知道有没有问题", "images": ["T1006_1.jpg"], "order_id": "O1006", "account_id": "A006", "created_at": "2026-10-04T18:00:00", "status": "pending",
+   "label": {"truth": "real", "expected_verdict": "credible"}},
+  {"ticket_id": "T1007", "case": "U7 照片模糊", "type": "refund_only", "reason": "商品破损", "description": "泵头坏了", "images": ["T1007_1.jpg"], "order_id": "O1007", "account_id": "A007", "created_at": "2026-10-05T21:10:00", "status": "pending",
+   "label": {"truth": "unknown", "expected_verdict": "doubtful_insufficient"}},
+  {"ticket_id": "T1008", "case": "U8 过敏投诉", "type": "refund_only", "reason": "使用后过敏不适", "description": "用了两天脸上起红疹，很痒", "images": ["T1008_1.jpg"], "order_id": "O1008", "account_id": "A008", "created_at": "2026-10-05T08:00:00", "status": "pending",
+   "label": {"truth": "unknown", "expected_verdict": "health_referral"}},
+  {"ticket_id": "T1009", "case": "U9 同批次集中漏液", "type": "refund_only", "reason": "漏液", "description": "滴管瓶口一直在渗，盒子里都湿了", "images": ["T1009_1.jpg"], "order_id": "O1009", "account_id": "A010", "created_at": "2026-10-05T11:00:00", "status": "pending",
+   "label": {"truth": "real", "expected_verdict": "credible"}},
+  {"ticket_id": "T1010", "case": "C5 前后说法矛盾", "type": "refund_only", "reason": "漏液", "description": "漏液了，要求退款", "images": ["T1010_1.jpg"], "order_id": "O1010", "account_id": "A011", "created_at": "2026-10-05T19:30:00", "status": "pending",
+   "label": {"truth": "fake", "risk_types": ["C2", "C5"], "expected_verdict": "doubtful_suspicious"}},
+
+  {"ticket_id": "H0001", "type": "refund_only", "reason": "商品破损", "description": "罐子收到就裂了", "images": ["H0001_1.jpg"], "order_id": "O0001", "account_id": "A009", "created_at": "2026-10-02T12:00:00", "status": "closed", "history_verdict": "credible", "issue_type": "container_crack"},
+  {"ticket_id": "H0002", "type": "refund_only", "reason": "漏液", "description": "瓶口漏液", "images": ["H0002_1.jpg"], "order_id": "O0002", "account_id": "A012", "created_at": "2026-09-26T10:00:00", "status": "closed", "history_verdict": "credible", "issue_type": "leak"},
+  {"ticket_id": "H0003", "type": "refund_only", "reason": "漏液", "description": "滴管处渗漏", "images": ["H0003_1.jpg"], "order_id": "O0003", "account_id": "A013", "created_at": "2026-09-29T15:00:00", "status": "closed", "history_verdict": "credible", "issue_type": "leak"},
+  {"ticket_id": "H0004", "type": "refund_only", "reason": "漏液", "description": "到货盒子湿了", "images": ["H0004_1.jpg"], "order_id": "O0004", "account_id": "A014", "created_at": "2026-10-01T09:00:00", "status": "closed", "history_verdict": "credible", "issue_type": "leak"},
+  {"ticket_id": "H0005", "type": "refund_only", "reason": "漏液", "description": "瓶口一圈都是精华", "images": ["H0005_1.jpg"], "order_id": "O0005", "account_id": "A015", "created_at": "2026-10-03T17:00:00", "status": "closed", "history_verdict": "credible", "issue_type": "leak"}
+]

@@ -1,0 +1,17 @@
+[
+  {"account_id": "A001", "register_at": "2021-03-01", "orders_90d": 6, "refunds_90d": 0, "refund_only_90d": 0, "total_spent": 8600, "vip_level": 3},
+  {"account_id": "A002", "register_at": "2026-08-20", "orders_90d": 5, "refunds_90d": 4, "refund_only_90d": 4, "total_spent": 1500, "vip_level": 0},
+  {"account_id": "A003", "register_at": "2026-09-15", "orders_90d": 2, "refunds_90d": 1, "refund_only_90d": 1, "total_spent": 900, "vip_level": 0},
+  {"account_id": "A004", "register_at": "2023-05-10", "orders_90d": 3, "refunds_90d": 0, "refund_only_90d": 0, "total_spent": 3200, "vip_level": 2},
+  {"account_id": "A005", "register_at": "2024-01-08", "orders_90d": 2, "refunds_90d": 0, "refund_only_90d": 0, "total_spent": 700, "vip_level": 1},
+  {"account_id": "A006", "register_at": "2022-11-11", "orders_90d": 4, "refunds_90d": 1, "refund_only_90d": 0, "total_spent": 5100, "vip_level": 2},
+  {"account_id": "A007", "register_at": "2025-06-01", "orders_90d": 1, "refunds_90d": 0, "refund_only_90d": 0, "total_spent": 420, "vip_level": 0},
+  {"account_id": "A008", "register_at": "2020-02-14", "orders_90d": 3, "refunds_90d": 0, "refund_only_90d": 0, "total_spent": 12000, "vip_level": 4},
+  {"account_id": "A009", "register_at": "2026-09-10", "orders_90d": 3, "refunds_90d": 2, "refund_only_90d": 2, "total_spent": 1200, "vip_level": 0},
+  {"account_id": "A010", "register_at": "2022-07-01", "orders_90d": 5, "refunds_90d": 0, "refund_only_90d": 0, "total_spent": 6400, "vip_level": 3},
+  {"account_id": "A011", "register_at": "2025-12-01", "orders_90d": 2, "refunds_90d": 1, "refund_only_90d": 1, "total_spent": 800, "vip_level": 0},
+  {"account_id": "A012", "register_at": "2023-01-01", "orders_90d": 3, "refunds_90d": 1, "refund_only_90d": 1, "total_spent": 2400, "vip_level": 1},
+  {"account_id": "A013", "register_at": "2022-01-01", "orders_90d": 4, "refunds_90d": 1, "refund_only_90d": 1, "total_spent": 3600, "vip_level": 2},
+  {"account_id": "A014", "register_at": "2024-01-01", "orders_90d": 2, "refunds_90d": 1, "refund_only_90d": 1, "total_spent": 1100, "vip_level": 1},
+  {"account_id": "A015", "register_at": "2021-01-01", "orders_90d": 6, "refunds_90d": 1, "refund_only_90d": 1, "total_spent": 9100, "vip_level": 3}
+]

@@ -1,0 +1,12 @@
+[
+  {"ticket_id": "T1001", "messages": [{"role": "buyer", "time": "2026-10-03T19:50:00", "text": "你好，粉底液泵头断了"}, {"role": "agent", "time": "2026-10-03T19:51:00", "text": "亲，非常抱歉，麻烦提交售后并上传照片哦"}]},
+  {"ticket_id": "T1002", "messages": [{"role": "buyer", "time": "2026-10-04T09:20:00", "text": "收到的精华漏了，要退款"}]},
+  {"ticket_id": "T1003", "messages": [{"role": "buyer", "time": "2026-10-05T13:50:00", "text": "面霜罐子裂了"}]},
+  {"ticket_id": "T1004", "messages": [{"role": "buyer", "time": "2026-10-05T10:10:00", "text": "泵头漏液"}]},
+  {"ticket_id": "T1005", "messages": [{"role": "buyer", "time": "2026-10-05T16:40:00", "text": "洗面奶碎了"}]},
+  {"ticket_id": "T1006", "messages": [{"role": "buyer", "time": "2026-10-04T17:50:00", "text": "快递盒子都压扁了"}]},
+  {"ticket_id": "T1007", "messages": [{"role": "buyer", "time": "2026-10-05T21:00:00", "text": "泵头坏了"}]},
+  {"ticket_id": "T1008", "messages": [{"role": "buyer", "time": "2026-10-05T07:50:00", "text": "用了两天脸上过敏了"}]},
+  {"ticket_id": "T1009", "messages": [{"role": "buyer", "time": "2026-10-05T10:50:00", "text": "精华瓶口一直渗液"}]},
+  {"ticket_id": "T1010", "messages": [{"role": "buyer", "time": "2026-10-04T20:00:00", "text": "这个味道我不太喜欢，能退吗"}, {"role": "agent", "time": "2026-10-04T20:01:00", "text": "亲，已拆封的商品非质量问题暂不支持退换哦"}, {"role": "buyer", "time": "2026-10-05T19:20:00", "text": "那它漏液了，我要退款"}]}
+]

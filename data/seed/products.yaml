@@ -1,0 +1,57 @@
+# S10 产品知识库（P0 占位 SKU，名称为品类示意；P1 替换为核对过的真实欧莱雅 SKU）
+# possible_damage / impossible_damage 取值同 IssueType
+
+- sku_id: SKU-SERUM-GLASS-30
+  name: 精华液（玻璃滴管瓶）
+  spec: 30ml
+  container: glass_bottle
+  closure: dropper
+  printed_fields: [brand, name, spec, batch_no_bottom]
+  fragile_parts: [bottle_neck, dropper_bulb]
+  possible_damage: [container_crack, leak, outer_box_damage]
+  impossible_damage: [pump_broken]
+  liquid: {color: 透明, viscosity: 低}
+
+- sku_id: SKU-FOUND-PUMP-30
+  name: 粉底液（玻璃泵头瓶）
+  spec: 30ml
+  container: glass_bottle
+  closure: pump
+  printed_fields: [brand, name, spec, shade, batch_no_bottom]
+  fragile_parts: [pump_head, bottle_body]
+  possible_damage: [pump_broken, container_crack, leak, outer_box_damage]
+  impossible_damage: []
+  liquid: {color: 肤色, viscosity: 中}
+
+- sku_id: SKU-CLEANSER-TUBE-125
+  name: 洁面乳（塑料软管）
+  spec: 125ml
+  container: plastic_tube
+  closure: flip_cap
+  printed_fields: [brand, name, spec, batch_no_crimp]
+  fragile_parts: [cap_hinge, tube_crimp]
+  possible_damage: [leak, outer_box_damage]
+  impossible_damage: [container_crack, pump_broken]
+  liquid: {color: 白色, viscosity: 高}
+
+- sku_id: SKU-CREAM-JAR-50
+  name: 面霜（玻璃罐）
+  spec: 50ml
+  container: glass_jar
+  closure: screw_lid
+  printed_fields: [brand, name, spec, batch_no_bottom]
+  fragile_parts: [jar_rim, jar_body]
+  possible_damage: [container_crack, outer_box_damage]
+  impossible_damage: [pump_broken]
+  liquid: {color: 白色, viscosity: 高}
+
+- sku_id: SKU-SERUM-PUMP-50
+  name: 精华乳（塑料泵头瓶）
+  spec: 50ml
+  container: plastic_bottle
+  closure: pump
+  printed_fields: [brand, name, spec, batch_no_bottom]
+  fragile_parts: [pump_head]
+  possible_damage: [pump_broken, leak, outer_box_damage]
+  impossible_damage: [container_crack]
+  liquid: {color: 乳白, viscosity: 中}

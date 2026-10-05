@@ -1,0 +1,35 @@
+# 所有阈值集中于此，P5 用数据集校准（目标：误报率 <= 10% 下拦截率最大）
+
+quality:
+  blur_laplacian_var_min: 60      # 低于视为模糊
+  brightness_min: 35              # 平均亮度过暗
+  brightness_max: 225             # 平均亮度过曝
+  min_side_px: 320                # 最短边过小
+
+pixel:
+  aigc_strong: 0.85               # AIGC 概率 >= 视为强信号
+  aigc_medium: 0.60
+  tamper_strong: 0.80             # 篡改完整性分 >= 视为强信号
+  tamper_medium: 0.55
+  screenshot_discount: 0.15       # 截图/重压缩时分数下调
+
+dup:
+  phash_size: 16                  # 256 bit
+  exact_max_dist: 12              # 汉明距离 <= 视为同图（强）
+  near_max_dist: 40               # <= 视为近似图（中）
+  text_sim_medium: 0.75           # 诉求文案字符 3-gram Jaccard
+
+logistics:
+  late_report_days: 7             # "到货即破损"但签收 N 天后才申请
+
+account:
+  refunds_90d_flag: 4
+  refund_only_ratio_flag: 0.6
+
+batch:
+  window_days: 14
+  min_credible_same_issue: 3      # 同 SKU+批次 同类可信投诉 >= 则增信
+
+fusion:
+  min_confidence: 0.45            # 低于则强制"存疑-信息不足"
+  tool_error_penalty: 0.2

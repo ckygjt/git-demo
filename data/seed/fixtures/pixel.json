@@ -1,0 +1,17 @@
+{
+  "_comment": "Mock 模式下 S1 像素取证的回放结果（模拟 AIGC 检测 + 篡改定位 + VLM 物理合理性审视）。P3 接入真实检测器后替换。",
+  "T1001_1.jpg": {"aigc": 0.10, "tamper": 0.72, "bbox": [0.05, 0.05, 0.35, 0.42], "region_label": "人脸",
+    "physics": []},
+  "T1002_1.jpg": {"aigc": 0.91, "tamper": 0.83, "bbox": [0.38, 0.35, 0.72, 0.85], "region_label": "液体区域",
+    "physics": [{"aspect": "液体形态", "observation": "液体边缘过于平滑、无表面张力形成的弧度", "suspicious": true},
+                {"aspect": "高光", "observation": "液体高光方向与瓶身高光方向不一致", "suspicious": true}]},
+  "T1003_1.jpg": {"aigc": 0.15, "tamper": 0.20, "bbox": null, "region_label": null, "physics": []},
+  "T1004_1.jpg": {"aigc": 0.08, "tamper": 0.15, "bbox": null, "region_label": null, "physics": []},
+  "T1005_1.jpg": {"aigc": 0.12, "tamper": 0.18, "bbox": null, "region_label": null, "physics": []},
+  "T1006_1.jpg": {"aigc": 0.20, "tamper": 0.60, "bbox": [0.15, 0.15, 0.55, 0.45], "region_label": "外盒",
+    "physics": []},
+  "T1007_1.jpg": {"aigc": 0.30, "tamper": 0.30, "bbox": null, "region_label": null, "physics": []},
+  "T1008_1.jpg": {"aigc": 0.10, "tamper": 0.10, "bbox": null, "region_label": null, "physics": []},
+  "T1009_1.jpg": {"aigc": 0.09, "tamper": 0.12, "bbox": null, "region_label": null, "physics": []},
+  "T1010_1.jpg": {"aigc": 0.11, "tamper": 0.14, "bbox": null, "region_label": null, "physics": []}
+}

@@ -30,7 +30,9 @@ dist/
 *.key
 
 # ============ 数据与大文件（用 Git LFS 或外部网盘） ============
-data/
+data/images/
+data/cache/
+data/*.db
 datasets/
 *.zip
 *.rar

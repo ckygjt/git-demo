@@ -1,0 +1,18 @@
+[
+  {"order_id": "O1001", "account_id": "A001", "sku_id": "SKU-FOUND-PUMP-30", "spec": "30ml", "qty": 1, "gifts": [], "amount": 420.0, "batch_no": "F2608C", "warehouse": "华东仓", "paid_at": "2026-09-30T21:00:00"},
+  {"order_id": "O1002", "account_id": "A002", "sku_id": "SKU-SERUM-GLASS-30", "spec": "30ml", "qty": 1, "gifts": [], "amount": 380.0, "batch_no": "B2607K", "warehouse": "华南仓", "paid_at": "2026-09-22T13:00:00"},
+  {"order_id": "O1003", "account_id": "A003", "sku_id": "SKU-CREAM-JAR-50", "spec": "50ml", "qty": 1, "gifts": [], "amount": 560.0, "batch_no": "C2609A", "warehouse": "华北仓", "paid_at": "2026-10-01T10:00:00"},
+  {"order_id": "O1004", "account_id": "A004", "sku_id": "SKU-SERUM-PUMP-50", "spec": "50ml", "qty": 1, "gifts": [], "amount": 450.0, "batch_no": "P2609B", "warehouse": "华东仓", "paid_at": "2026-10-01T19:00:00"},
+  {"order_id": "O1005", "account_id": "A005", "sku_id": "SKU-CLEANSER-TUBE-125", "spec": "125ml", "qty": 1, "gifts": [], "amount": 129.0, "batch_no": "T2609D", "warehouse": "华东仓", "paid_at": "2026-10-02T08:00:00"},
+  {"order_id": "O1006", "account_id": "A006", "sku_id": "SKU-CREAM-JAR-50", "spec": "50ml", "qty": 1, "gifts": [], "amount": 560.0, "batch_no": "C2609A", "warehouse": "华北仓", "paid_at": "2026-09-30T11:00:00"},
+  {"order_id": "O1007", "account_id": "A007", "sku_id": "SKU-FOUND-PUMP-30", "spec": "30ml", "qty": 1, "gifts": [], "amount": 420.0, "batch_no": "F2608C", "warehouse": "华东仓", "paid_at": "2026-10-02T12:00:00"},
+  {"order_id": "O1008", "account_id": "A008", "sku_id": "SKU-CREAM-JAR-50", "spec": "50ml", "qty": 1, "gifts": [], "amount": 560.0, "batch_no": "C2609A", "warehouse": "华北仓", "paid_at": "2026-09-28T09:00:00"},
+  {"order_id": "O1009", "account_id": "A010", "sku_id": "SKU-SERUM-GLASS-30", "spec": "30ml", "qty": 1, "gifts": [], "amount": 380.0, "batch_no": "B2609A", "warehouse": "华东仓", "paid_at": "2026-10-01T20:00:00"},
+  {"order_id": "O1010", "account_id": "A011", "sku_id": "SKU-SERUM-GLASS-30", "spec": "30ml", "qty": 1, "gifts": [], "amount": 380.0, "batch_no": "B2607K", "warehouse": "华南仓", "paid_at": "2026-10-01T15:00:00"},
+
+  {"order_id": "O0001", "account_id": "A009", "sku_id": "SKU-CREAM-JAR-50", "spec": "50ml", "qty": 1, "gifts": [], "amount": 560.0, "batch_no": "C2609A", "warehouse": "华北仓", "paid_at": "2026-09-28T10:00:00"},
+  {"order_id": "O0002", "account_id": "A012", "sku_id": "SKU-SERUM-GLASS-30", "spec": "30ml", "qty": 1, "gifts": [], "amount": 380.0, "batch_no": "B2609A", "warehouse": "华东仓", "paid_at": "2026-09-22T10:00:00"},
+  {"order_id": "O0003", "account_id": "A013", "sku_id": "SKU-SERUM-GLASS-30", "spec": "30ml", "qty": 1, "gifts": [], "amount": 380.0, "batch_no": "B2609A", "warehouse": "华东仓", "paid_at": "2026-09-25T10:00:00"},
+  {"order_id": "O0004", "account_id": "A014", "sku_id": "SKU-SERUM-GLASS-30", "spec": "30ml", "qty": 1, "gifts": [], "amount": 380.0, "batch_no": "B2609A", "warehouse": "华东仓", "paid_at": "2026-09-27T10:00:00"},
+  {"order_id": "O0005", "account_id": "A015", "sku_id": "SKU-SERUM-GLASS-30", "spec": "30ml", "qty": 1, "gifts": [], "amount": 380.0, "batch_no": "B2609A", "warehouse": "华东仓", "paid_at": "2026-09-30T10:00:00"}
+]
