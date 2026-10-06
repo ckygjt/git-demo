@@ -1,0 +1,117 @@
+# 本地虚构信源库 —— 全部为演示用虚构数据，不指向任何真实主体
+# 用于 mock 模式回放：备案库、证书库、机构库、专家库、文献库、传播数据、OCR 回放、示例案例
+
+filings:
+  国妆网备字2025000001:
+    brand: 澜芝
+    product: 澜芝水漾保湿精华
+    enterprise: 澜芝生物科技（广州）有限公司
+    scope: [保湿]
+    category: 普通化妆品备案
+  国妆特字2025000007:
+    brand: 澜芝
+    product: 澜芝焕颜祛斑精华
+    enterprise: 澜芝生物科技（广州）有限公司
+    scope: [祛斑美白]
+    category: 特殊化妆品注册
+
+certs:
+  CMA-2025-HZ-1188:
+    issuer: 广妆质检技术服务有限公司
+    subject: 澜芝生物科技（广州）有限公司
+    valid_until: "2027-05-31"
+    scope: [化妆品微生物与理化检测]
+    standard: QB/T 2872
+  CMA-2024-HZ-0451:
+    issuer: 广妆质检技术服务有限公司
+    subject: 蔓薇生物科技有限公司
+    valid_until: "2025-04-30"
+    scope: [化妆品微生物检测]
+    standard: QB/T 2872
+
+institutions:
+  - 广妆质检技术服务有限公司
+  - 广东省化妆品质量监督检验站
+  - 中国香料香精化妆品工业协会
+
+institution_blacklist:
+  - 世界美妆产业联盟
+  - 全球美妆认证中心
+
+experts:
+  - name: 陈知微
+    hospital: 南方滨海医院
+    title: 皮肤科主任医师
+  - name: 林致远
+    hospital: 云港市第一医院
+    title: 皮肤科副主任医师
+
+references:
+  - 化妆品功效宣称评价规范
+  - QB/T 2872 面膜
+  - 化妆品监督管理条例
+
+spread:
+  澜芝水漾保湿精华:
+    copies: 3
+    platforms: [小红书, 抖音]
+  澜芝焕颜祛斑精华:
+    copies: 12
+    platforms: [小红书, 抖音, 知乎, 微博, 公众号]
+
+# 图像 OCR 回放：按文件名关键字匹配，未命中用 default
+vision_fixtures:
+  default:
+    doc_type: product
+    fields:
+      product: 澜芝水漾保湿精华
+      brand: 澜芝
+      filing_no: ""
+      cert_no: ""
+    note: 未匹配到专用回放，返回通用产品图结构
+  cert:
+    doc_type: certificate
+    match: [cert, 证书, report, 报告]
+    fields:
+      cert_no: CMA-2024-HZ-0451
+      issuer: 广妆质检技术服务有限公司
+      subject: 蔓薇生物科技有限公司
+      valid_until: "2025-04-30"
+      standard: QB/T 2872
+      scope: 化妆品微生物检测
+  expert:
+    doc_type: expert_portrait
+    match: [expert, 专家, 头像, doctor, portrait]
+    fields:
+      person: 沈亦舟
+      org: 亚太美妆科技研究院
+      title: 首席研究员
+
+# 前端「一键加载」示例案例
+sample_cases:
+  - id: demo-1
+    title: 案例1 · 伪造 CMA 检测报告 + 三甲主任推荐
+    brand: 澜芝
+    product: 澜芝焕颜祛斑精华
+    source_url: https://example.com/post/123456
+    text: >
+      澜芝焕颜祛斑精华经广妆质检技术服务有限公司权威检测（证书编号 CMA-2024-HZ-0451），
+      三甲医院皮肤科主任陈知微倾力推荐，临床验证有效率 98%，7 天显著淡斑。
+    images: [fake_cma_report.jpg]
+  - id: demo-2
+    title: 案例2 · AI 生成专家头像 + 虚构协会认证
+    brand: 澜芝
+    product: 澜芝水漾保湿精华
+    source_url: https://example.com/post/234567
+    text: >
+      亚太美妆科技协会权威认证，首席研究员沈亦舟博士表示：本产品配方达到国际领先水平，
+      补水效果提升 300%。
+    images: [ai_expert_portrait.jpg]
+  - id: demo-3
+    title: 案例3 · 真实备案但超范围宣称
+    brand: 澜芝
+    product: 澜芝水漾保湿精华
+    source_url: https://example.com/post/345678
+    text: >
+      澜芝水漾保湿精华（国妆网备字2025000001）医美级淡斑配方，7 天根除色斑，永不反弹。
+    images: []

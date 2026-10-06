@@ -1,0 +1,71 @@
+# 场景B 阈值与权重：改配置不改代码
+# risk_score = Σ|降信权重| - 0.5 × Σ增信权重
+
+levels:
+  high_risk_score: 8.0        # ≥ 此分或命中红线 → 高度疑似伪造
+  doubtful_score: 4.0         # ≥ 此分 → 存疑
+  min_effective_evidence: 2   # 有效证据少于此数 → 证据不足
+  max_unverifiable_ratio: 0.5 # 不可验工具占比高于此值 → 证据不足
+
+confidence:
+  base: 0.40
+  per_evidence: 0.08
+  unverifiable_penalty: 0.30
+  redline_floor: 0.90
+  min: 0.30
+  max: 0.95
+
+weights:
+  filing_confirmed: 3.0
+  filing_subject_mismatch: -5.0     # 红线
+  filing_not_found: -2.0            # 查无 ≠ 伪造，只降信
+  cert_confirmed: 3.0
+  cert_subject_mismatch: -5.0       # 红线
+  cert_not_found: -2.0
+  cert_expired: -3.0
+  institution_confirmed: 3.0
+  institution_not_found: -2.0       # 查无 ≠ 伪造，只降信
+  institution_contradicted: -4.0    # 红线：确认不存在
+  expert_confirmed: 2.0
+  expert_not_found: -2.0
+  expert_contradicted: -3.0         # 红线：与宣称机构冲突
+  reference_found: 1.0
+  reference_missing: -2.0
+  spread_batch: -2.0                # GEO 水军式批量复制
+  spread_clean: 1.0                 # 未发现批量复制迹象
+  medical_term: -4.0                # 红线：核心宣称使用禁用医疗用语
+  absolute_term: -2.0               # 绝对化 / 夸大用语
+  scope_exceeded: -3.0              # 宣称超出备案/证书核定范围
+  special_claim_no_basis: -3.0
+  forensics_anomaly: 0.0            # 技术取证槽位（本期未启用）
+
+redlines:
+  cert_subject_mismatch: true
+  filing_subject_mismatch: true
+  institution_contradicted: true
+  expert_contradicted: true
+  medical_term_core: true
+
+claims:
+  # 禁用医疗用语（核心功效宣称出现即高危，命中红线）
+  medical_terms:
+    - 治疗
+    - 治愈
+    - 消炎
+    - 抗菌
+    - 灭菌
+    - 处方
+    - 药用
+    - 抗炎
+    - 抗过敏
+  # 功效词 → 判定是否超出备案范围
+  efficacy_terms:
+    保湿: [保湿, 补水, 锁水]
+    祛斑美白: [淡斑, 祛斑, 美白, 提亮, 白皙]
+    抗皱: [抗皱, 淡纹, 紧致, 抗衰老]
+    舒缓: [舒缓, 修护, 镇静]
+    控油: [控油, 清爽, 收敛]
+  # 需特殊化妆品注册的功效
+  special_efficacy: [祛斑美白, 防晒, 防脱发, 祛痘, 抗牙本质敏感, 除臭]
+  # 绝对化 / 夸大 / 违规用语（降信，不构成红线）
+  absolute_terms: [第一, 唯一, 最佳, 100%, 彻底, 永久, 永不反弹, 根除, 医美级, 械字号]

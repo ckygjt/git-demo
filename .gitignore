@@ -33,6 +33,9 @@ dist/
 data/images/
 data/cache/
 data/*.db
+# 场景运行时产物：案例落盘与上传件不入库
+scenarios/*/data/cases/
+scenarios/*/data/uploads/
 datasets/
 *.zip
 *.rar
