@@ -1,0 +1,831 @@
+[
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B01I5MFUZ4_AFOWV5IYV72HUBALDQNS5SNQNXVA_1673153616632_0.jpg",
+  "vision_ok": false,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "光影、景深和反射表现自然，符合手机实拍特征",
+   "瓶身、弹簧及脱落部件的结构细节连续一致，未见明显生成伪影",
+   "背景纹理与物体接触阴影自然，未发现明显AI编辑痕迹"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B06XD7L7VR_AESGO5DTE4UA54G5ME7HSYGWGTAQ_1639108523303_1.jpg",
+  "vision_ok": true,
+  "n_damages": 2,
+  "damage_types": [
+   "outer_box_damage",
+   "other"
+  ],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "光照、反射、景深及物体遮挡关系自然一致，符合真实拍摄特征",
+   "纸箱撕裂、胶带褶皱和污渍边缘细节随机且连贯，未见明显生成痕迹",
+   "商品与背景纹理清晰连续，未发现明显变形、重复纹理或拼接异常"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B07FMW6HBF_AHBVUH3HV3NIV344QQYCGGRKXD7Q_1547328510088_0.jpg",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "other"
+  ],
+  "ai_prob": 0.04,
+  "ai_reasons": [
+   "瓶体、瓶盖与桌布纹理及光照关系自然一致",
+   "破损、污渍和反光细节呈现真实拍摄的随机性",
+   "未见明显的边缘融合、重复纹理或生成式畸变"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B08RY6S25W_AE65PE4XJIZWYOMMYOQXYTD63INQ_1626303077951_0.jpg",
+  "vision_ok": false,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "包装破损、胶带和阴影呈现自然的三维遮挡与光照关系",
+   "文字、瓶盖及纸盒边缘整体连续，未见明显生成式图像的结构错乱",
+   "画面存在自然拍摄的轻微模糊、反光和曝光不均，符合实拍特征"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B084Q5P8MM_AH6NP3BEWWDEPA24LX2UWZW3AGCQ_1614034458448_0.jpg",
+  "vision_ok": false,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "包装塑料褶皱、粉饼碎裂和粉末散落的细节自然且相互一致",
+   "条形码、包装文字与反光遮挡关系正常，未见明显生成式文字或结构异常",
+   "整体光照、阴影和破损边缘符合真实拍摄的商品破损场景"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B08BZNW9NK_AFNF7IGOCNY2UP2IOK2A4GDC5LBQ_1605468193550_1.jpg",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "other"
+  ],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "金属外壳反光、边缘及睫毛细节自然连续，未见明显生成伪影",
+   "污渍/破损区域与包装槽及光照关系基本一致，呈现真实拍摄质感",
+   "背景石材纹理和整体透视无明显异常或拼接痕迹"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B07N1WK985_AF7WCPG723B35ZNPV4ZFHEEYDHCA_1619915155066_0.jpg",
+  "vision_ok": false,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "瓶体、铝膜褶皱与内容物颗粒细节自然，未见明显生成伪影",
+   "光照、阴影和反光关系基本一致，边缘无异常融合痕迹",
+   "画面呈现普通手机实拍质感，未发现明显AI编辑特征"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B07N1WK985_AF7WCPG723B35ZNPV4ZFHEEYDHCA_1619915155066_1.jpg",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "leak"
+  ],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "容器、咖啡色膏体与散落颗粒的纹理自然，未见明显生成伪影",
+   "光照、阴影和反光关系一致，破损/洒落状态符合真实拍摄",
+   "标签文字与桶体透视、边缘结构基本连贯，未发现明显局部编辑痕迹"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B01F049RFY_AFOLTDRX5FQNHFZ4QMKL75B7DGAQ_1503248583372_0.jpg",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "leak"
+  ],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "包装标签、条形码和细小文字呈现自然的拍摄模糊与透视变形",
+   "罐盖破损、污渍和内容物溢出痕迹具有连续的遮挡与光影关系",
+   "边缘反光、材质纹理及背景噪声整体符合真实手机照片特征"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B07FP2C8N8_AGVDVF53PM2XILGTVXX3ZV57J2DQ_1599615348790_0.jpg",
+  "vision_ok": false,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "瓶盖、液体与玻璃反光关系自然，未见明显生成式畸变",
+   "背景椅子、桌面和纸张的透视及景深表现一致",
+   "整体呈现真实手机拍摄的噪点、压缩和轻微失焦特征"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B07MHLZ3ZH_AH2E2K27WVO3CHYLZGTG6GB5NMMQ_1582913753288_0.jpg",
+  "vision_ok": true,
+  "n_damages": 2,
+  "damage_types": [
+   "other",
+   "other"
+  ],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "产品文字与包装结构清晰连贯，未见明显生成式文字变形或重复纹理",
+   "粉末破损、划痕和反光具有自然的物理分布与细节",
+   "背景织物褶皱、景深及光照关系自然，未发现明显AI合成边缘"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B08JHQL8DQ_AE626MLCKSHSFDB2Q5SV73V3PFQQ_1626473405279_0.jpg",
+  "vision_ok": true,
+  "n_damages": 2,
+  "damage_types": [
+   "container_crack",
+   "leak"
+  ],
+  "ai_prob": 0.08,
+  "ai_reasons": [
+   "光照、金属台面反射及物体阴影整体一致，符合真实拍摄特征",
+   "破损边缘、液体散落和零件连接关系较自然，未见明显生成式畸变",
+   "局部物体轮廓略显复杂，但不足以支持AI生成或编辑判断"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B07B42V1Y2_AEZYWYRXUSZO3XHJF4YJNNC3CIJA_1584570441474_0.jpg",
+  "vision_ok": false,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "整体呈现真实手机拍摄的景深、反光与噪点特征",
+   "瓶身、台面及背景物体的透视和光照基本一致",
+   "瓶口破损形态虽较复杂，但未见明显的生成式纹理、文字或边缘错位"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B07B42V1Y2_AEZYWYRXUSZO3XHJF4YJNNC3CIJA_1584570441474_1.jpg",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "pump_broken"
+  ],
+  "ai_prob": 0.04,
+  "ai_reasons": [
+   "瓶身、泵头破损处的透明材质反光和褶皱较自然，符合实物拍摄特征",
+   "背景、景深与光照过渡连续，未见明显生成式纹理或结构错位",
+   "标签文字虽有压缩和模糊，但整体符合普通手机照片表现"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B01DTSZU6S_AFA54MU3UV2ONLSQH5R6SA6RECBQ_1655495064116_1.jpg",
+  "vision_ok": true,
+  "n_damages": 2,
+  "damage_types": [
+   "outer_box_damage",
+   "leak"
+  ],
+  "ai_prob": 0.08,
+  "ai_reasons": [
+   "包装文字、品牌标识与透视结构整体清晰且连贯",
+   "光照、反光和透明塑料罩的遮挡关系较自然，未见明显生成伪影",
+   "顶部粉色破损物形态不规则，但更像真实泄漏或挤压造成的残留"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B08M9GJXR6_AEUHWJIFS7QZTSCAWM26EKO7XKHA_1639947322206_0.jpg",
+  "vision_ok": true,
+  "n_damages": 2,
+  "damage_types": [
+   "leak",
+   "outer_box_damage"
+  ],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "瓶身、标签文字与蜘蛛侠图案边缘清晰且透视关系自然",
+   "水渍、反光和包装褶皱呈现真实拍摄中的不规则细节",
+   "未发现明显的文字乱码、重复纹理或物体边界异常"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B01N3JPJKM_AFLF6UN5KP6F5OWTR7QEQJ6242KQ_1575498140547_1.jpg",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "outer_box_damage"
+  ],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "手部、纸盒边缘与背景物体纹理自然，未见明显生成伪影",
+   "光照、阴影和反光在破损区域衔接一致",
+   "裂痕、折痕及包装结构具有连续的真实物理形变"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B07W3GG32V_AELG3OX2COHD6ELQ7YXXTIJ4IYTQ_1575513264982_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "光影、反射、景深和手部遮挡呈现自然拍摄特征",
+   "包装文字与透视变形基本一致，未见明显生成式文字错误",
+   "疑似破损处边缘与标签纹理、光照融合自然，未见明显拼接痕迹"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B071GYJ68H_AGQBTUNOCCQ34KUHADOU2MQ2GPQQ_1536595773868_0.jpg",
+  "vision_ok": true,
+  "n_damages": 2,
+  "damage_types": [
+   "other",
+   "leak"
+  ],
+  "ai_prob": null,
+  "ai_reasons": []
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B09K83DZB3_AE2UE4MFTXIDF6K3CJGS6DY5L2FA_1662323556134_1.jpg",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "other"
+  ],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "瓶身、地毯纹理与光影连续自然，未见明显生成式伪影",
+   "喷头破损形态、透明碎片和反光关系基本符合真实物理结构",
+   "标签文字存在拍摄模糊和透视变形，但未见明显乱码或局部重绘痕迹"
+  ]
+ },
+ {
+  "set": "real_damaged",
+  "file": "All_Beauty_B001MKRQBS_AFNTT3Y25WAUKQUTXV43WEATD5GA_1651178158807_0.jpg",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "outer_box_damage"
+  ],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "包装文字与图案细节清晰连贯，未见明显生成式错字或结构异常",
+   "破损处的折痕、撕裂边缘和胶带粘贴符合真实物理损坏特征",
+   "台面纹理、反光与物体阴影自然一致，未发现明显拼接或局部编辑痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B015ZXMSFQ_AHV6QCNBJNSGLATP56JAWJ3C4G2A_1455464933000_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "包装褶皱、反光和边缘透视关系自然一致，符合实拍特征",
+   "文字与品牌标识虽有轻微模糊，但未见明显生成式错字或结构异常",
+   "未发现局部纹理重复、边缘融合或不自然光影等AI编辑痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B07S8F3LRC_AEYGPUCRKH7G4VM22FM3VAKSQ23Q_1577295338919_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "文字内容连贯清晰，字形、行距和排版未见明显生成式变形",
+   "瓶身透视、反光、阴影与背景纹理自然，符合手机实拍特征",
+   "未发现局部纹理重复、边缘融合异常或物体结构不一致等AI编辑痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08T5LG5FT_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1623796829059_1.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.08,
+  "ai_reasons": [
+   "物体边缘、纹理与背景噪声整体连贯，未见明显生成式伪影",
+   "光照方向、阴影和接触关系基本自然一致",
+   "画面存在手机拍摄常见的失焦与运动模糊，未见明显局部拼接或编辑痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08LPGZMQK_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1623116811042_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "光照、阴影、透视和物体遮挡关系自然，符合真实拍摄特征",
+   "包装纹理、丝带和英文文字细节连续，没有明显生成式变形或拼接痕迹",
+   "画面中可见商品包装被打开，但未发现明显 AI 编辑破损区域"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08MCDB52J_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1622303084098_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "商品文字、边缘和细节清晰自然，未见明显生成式伪影或错位变形",
+   "光照、阴影、玻璃反射与景深关系一致，符合真实拍摄特征",
+   "画面存在自然磨损、灰尘和背景杂乱细节，未发现明显拼接或AI编辑痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08RY2LML3_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1613949623459_1.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.06,
+  "ai_reasons": [
+   "金属表面反光、阴影与泡沫包装纹理具有连续且自然的物理关系",
+   "文字和装饰图案边缘整体清晰，未见明显生成式错字或结构异常",
+   "顶部边缘的变形与磨损细节较符合实物拍摄效果"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08GWKYWMP_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1611360452090_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "物体边缘、透视关系和遮挡自然，未见明显生成畸变",
+   "玻璃瓶反光、阴影及背景物体细节相互一致",
+   "画面呈现普通手机实拍质感，未发现明显 AI 拼接或编辑痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08HGZXLP6_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1611102853719_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "物体边缘、反光和景深表现自然，未见明显生成式伪影",
+   "多件物品的透视关系、遮挡和纹理一致，符合普通手机拍摄特征",
+   "画面存在自然的轻微运动模糊与噪点，未发现明显局部拼接或AI修改痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08P7PSMRR_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1610322554727_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "物体边缘、膏体纹理和木桌细节自然，未见明显生成伪影",
+   "光照、阴影与反射方向一致，透视关系合理",
+   "未发现局部纹理重复、结构错位或不自然融合痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08NJ56F9C_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1610062915805_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "包装文字、图案和重复物体结构整体连贯，未见明显生成式畸变",
+   "光照、阴影、景深与桌面纹理表现自然一致",
+   "画面存在普通拍摄造成的低清晰度和轻微模糊，未见明显拼接或局部编辑痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08NJ56F9C_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1610062915805_1.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "画面光照、材质纹理和阴影表现自然，符合手机实拍特征",
+   "包装文字、洗手盆和台面边缘细节连续，未见明显生成伪影",
+   "未发现局部形变、重复纹理或不合逻辑的物体结构"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08G8B2CQH_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1606592038866_0.jpg",
+  "vision_ok": false,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "物品边缘、纹理与光影关系自然，未见明显生成式伪影",
+   "透明瓶身、喷头和挂扣结构连贯，细节符合真实拍摄表现",
+   "整体存在自然景深、噪点与轻微拍摄模糊，未见明显拼接或局部重绘痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B087B5RJ2P_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1606524744605_0.jpg",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "outer_box_damage"
+  ],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "产品包装、织物纹理与阴影自然连续，符合真实拍摄特征",
+   "盒体与软管的透视关系、反光和遮挡一致，未见明显拼接痕迹",
+   "文字虽有轻微模糊和压缩失真，但未见典型AI生成变形"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B087B5RJ2P_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1606524744605_1.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "文字排版、包装边缘与透视关系自然一致",
+   "光照、阴影和背景纹理呈现真实拍摄特征",
+   "未见明显的AI生成乱码、局部变形或拼接痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08G83G24X_AFXF3EGQTQDXMRLDWFU7UBFQZB7Q_1606518368441_1.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "物体边缘、纹理和光照整体自然一致，未见明显生成式图像伪影",
+   "多件商品的透视关系、遮挡和阴影符合真实拍摄场景",
+   "未发现文字、图案或结构出现明显畸变、重复粘连等 AI 编辑痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08H4SYXR4_AFQQQ5LGNSQUEBGDCYBAZZE5T3DA_1604423044373_1.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.06,
+  "ai_reasons": [
+   "文字排版、装饰图案和印刷纹理整体连贯自然",
+   "未见明显的字符乱码、局部畸变或不一致光影",
+   "画面存在真实拍摄常见的轻微模糊与反光"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08RYN11N9_AFTLUVGQWKW6XSQ5TB6UER5Q263A_1637813050565_1.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "商品、手部与地面纹理衔接自然，光照和阴影一致",
+   "包装文字与图案边缘清晰连续，未见明显生成式变形或乱码",
+   "画面存在自然拍摄的角度、遮挡和细节噪声，未见明显拼接痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B09GVHT2D3_AFTLUVGQWKW6XSQ5TB6UER5Q263A_1636609755321_0.jpg",
+  "vision_ok": false,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "包装、填充纸与容器边缘的遮挡和纹理衔接自然",
+   "光照、景深和反射关系基本一致，未见明显生成或拼接痕迹",
+   "商品文字与花纹整体结构连贯，未发现典型AI变形异常"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B0971V4RL1_AFTLUVGQWKW6XSQ5TB6UER5Q263A_1633216734665_1.jpg",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "outer_box_damage"
+  ],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "文字、包装边缘与纹理清晰自然，未见明显生成式伪影或乱码",
+   "光照、阴影及透视关系基本一致，符合实拍照片特征",
+   "地面与商品细节存在自然噪声和反光变化，未见明显局部拼接或修补痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08F2RBJJ3_AFTLUVGQWKW6XSQ5TB6UER5Q263A_1621623173577_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "包装、地面纹理及光影过渡自然，符合实拍照片特征",
+   "文字和条码结构清晰连贯，未见明显生成式变形或错字",
+   "反光与局部文字变淡更像包装表面材质造成的真实反射"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08HVRP54L_AGAM2CCKV52HI4YZU7ASZTSXA7YQ_1654910784744_1.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "物体边缘、透明容器反光和液体纹理整体符合真实拍摄特征",
+   "未见明显的文字变形、结构重复或不自然融合伪影",
+   "画面噪点、光照和表面细节较自然，暂不支持AI生成或编辑判断"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08CL46XNM_AGAM2CCKV52HI4YZU7ASZTSXA7YQ_1599947601009_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "瓶身文字清晰且拼写、排版基本一致，未见明显生成式文字畸变",
+   "高光、阴影与瓶身曲面变形自然，符合手机闪光灯实拍特征",
+   "未发现边缘融合、纹理重复或局部细节异常等明显AI编辑痕迹"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08CL46XNM_AGAM2CCKV52HI4YZU7ASZTSXA7YQ_1599947601009_1.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "瓶身文字、边缘和透视关系自然，未见明显生成式伪影",
+   "光照、反光与阴影在瓶体曲面上基本一致，符合实拍特征",
+   "画面存在真实拍摄的轻微噪点、模糊和压缩痕迹，未见明显局部篡改"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B076DGMQTM_AF2BLE54TEMGZ546U763ZHZRXC4A_1569875262983_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "产品标签文字、条码和二维码均呈现自然印刷与拍摄模糊特征",
+   "容器边缘、反光和阴影符合真实手机拍摄的透视与光照效果",
+   "未见明显的局部重绘、纹理错位或生成式伪影"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08R3F946X_AFHPJTBQYQHQXIFBAODXDAIGCGMQ_1623110181984_0.jpg",
+  "vision_ok": true,
+  "n_damages": 0,
+  "damage_types": [],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "光照、景深与玻璃反光表现自然且前后一致",
+   "物体边缘、纹理和背景细节未见明显生成伪影",
+   "未发现局部结构错乱或重复纹理等AI编辑特征"
+  ]
+ },
+ {
+  "set": "real_intact",
+  "file": "All_Beauty_B08DXLRTSB_AGD25H7BIT2JUXSIOPYCYB23J3ZQ_1602361342066_0.jpg",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "outer_box_damage"
+  ],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "商品标签文字、排版和品牌信息整体连贯，未见明显乱码或生成式文字变形",
+   "纸箱纤维、污渍、阴影及边缘磨损呈现自然拍摄特征",
+   "画面存在真实镜头的轻微倾斜、景深和压缩模糊，未发现明显AI合成痕迹"
+  ]
+ },
+ {
+  "set": "fake_damaged",
+  "file": "SKU-SERUM-GLASS-30__container_crack__0.png",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "container_crack"
+  ],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "玻璃裂纹、液体折射与金属反光细节自然且相互一致",
+   "背景中的洗手台、镜面和光影透视关系正常",
+   "未见明显的生成式图像伪影或局部结构异常"
+  ]
+ },
+ {
+  "set": "fake_damaged",
+  "file": "SKU-SERUM-GLASS-30__leak__0.png",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "leak"
+  ],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "瓶体、液体与周围物体的光照和反射关系自然一致",
+   "液体边缘、透明材质及桌面接触阴影呈现真实拍摄特征",
+   "未见明显的结构畸变、重复纹理或生成式伪影"
+  ]
+ },
+ {
+  "set": "fake_damaged",
+  "file": "SKU-SERUM-GLASS-30__outer_box_damage__0.png",
+  "vision_ok": true,
+  "n_damages": 2,
+  "damage_types": [
+   "outer_box_damage",
+   "outer_box_damage"
+  ],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "包装盒破损处的纸张撕裂、褶皱和阴影过渡自然",
+   "玻璃瓶、吸管管体及台面反光与透视关系一致",
+   "未发现明显的物体边缘变形、纹理重复或生成式伪影"
+  ]
+ },
+ {
+  "set": "fake_damaged",
+  "file": "SKU-FOUND-PUMP-30__pump_broken__0.png",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "pump_broken"
+  ],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "瓶身、泵头与断裂处的结构和透视关系自然一致",
+   "玻璃反光、液体遮挡及背景物体的光影细节连贯",
+   "未见明显的局部纹理重复、边缘畸变或生成式伪影"
+  ]
+ },
+ {
+  "set": "fake_damaged",
+  "file": "SKU-FOUND-PUMP-30__container_crack__0.png",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "container_crack"
+  ],
+  "ai_prob": 0.12,
+  "ai_reasons": [
+   "瓶身裂纹与玻璃反光、透视关系基本一致，未见明显生成伪影",
+   "背景中的洗手台、容器和边缘细节自然连贯",
+   "裂纹形态较规则且对比度偏高，存在后期添加破损线条的轻微可能"
+  ]
+ },
+ {
+  "set": "fake_damaged",
+  "file": "SKU-FOUND-PUMP-30__leak__0.png",
+  "vision_ok": true,
+  "n_damages": 2,
+  "damage_types": [
+   "leak",
+   "other"
+  ],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "液体流淌、滴落与台面反光细节自然且连贯",
+   "瓶身、泵头和脱落盖子的结构与透视关系一致",
+   "未见明显的局部变形、重复纹理或生成式伪影"
+  ]
+ },
+ {
+  "set": "fake_damaged",
+  "file": "SKU-FOUND-PUMP-30__outer_box_damage__0.png",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "outer_box_damage"
+  ],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "光影、反射与物体接触关系自然一致",
+   "纸盒破损处的撕裂纹理和遮挡细节较真实",
+   "未见明显的肢体、文字或几何结构生成伪影"
+  ]
+ },
+ {
+  "set": "fake_damaged",
+  "file": "SKU-CLEANSER-TUBE-125__leak__0.png",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "leak"
+  ],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "光影、反射与水渍分布自然且整体一致",
+   "包装管体、瓶盖及台面边缘细节连贯，未见明显生成伪影",
+   "画面存在真实拍摄常见的景深与轻微噪点"
+  ]
+ },
+ {
+  "set": "fake_damaged",
+  "file": "SKU-CLEANSER-TUBE-125__outer_box_damage__0.png",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "outer_box_damage"
+  ],
+  "ai_prob": 0.02,
+  "ai_reasons": [
+   "包装纸盒破损处的褶皱、撕裂和压痕细节自然且连续",
+   "物体边缘、地面反光与阴影关系一致，未见明显生成或拼接痕迹",
+   "管身文字与产品结构清晰连贯，未出现常见的AI文字变形"
+  ]
+ },
+ {
+  "set": "fake_damaged",
+  "file": "SKU-CREAM-JAR-50__container_crack__0.png",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "container_crack"
+  ],
+  "ai_prob": 0.22,
+  "ai_reasons": [
+   "整体光照、透视、反射与背景细节自然一致",
+   "玻璃裂纹走向及边缘高光基本符合真实破裂表现",
+   "未发现明显的生成式纹理错乱、物体变形或背景拼接痕迹"
+  ]
+ },
+ {
+  "set": "fake_damaged",
+  "file": "SKU-CREAM-JAR-50__outer_box_damage__0.png",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "outer_box_damage"
+  ],
+  "ai_prob": 0.03,
+  "ai_reasons": [
+   "光影、反射和透视关系自然一致，符合真实拍摄特征",
+   "纸盒破损处的褶皱、撕裂边缘和内部阴影细节自然",
+   "未发现明显的生成式伪影、结构错位或物体边缘异常"
+  ]
+ },
+ {
+  "set": "fake_damaged",
+  "file": "SKU-SERUM-PUMP-50__pump_broken__0.png",
+  "vision_ok": true,
+  "n_damages": 1,
+  "damage_types": [
+   "pump_broken"
+  ],
+  "ai_prob": 0.06,
+  "ai_reasons": [
+   "光影、材质反射与背景透视自然一致",
+   "泵头断裂和液体残留细节具有真实拍摄的不规则性",
+   "未见明显的生成式纹理、边缘融合或结构重复异常"
+  ]
+ }
+]
