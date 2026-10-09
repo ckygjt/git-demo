@@ -15,8 +15,6 @@ from pathlib import Path
 import requests
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "data" / "images" / "real_candidates"
-MANIFEST = ROOT / "data" / "seed" / "real_candidates.jsonl"
 BASES = ["https://hf-mirror.com", "https://huggingface.co"]
 PATH = "/datasets/McAuley-Lab/Amazon-Reviews-2023/resolve/main/raw/review_categories/{cat}.jsonl"
 
@@ -39,10 +37,15 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--category", default="All_Beauty")
     ap.add_argument("--limit", type=int, default=40)
+    ap.add_argument("--mode", choices=["damaged", "intact"], default="damaged")
     ap.add_argument("--max-rating", type=float, default=3.0)
     ap.add_argument("--scan", type=int, default=2_000_000, help="最多扫描的评论行数")
     args = ap.parse_args()
     sys.stdout.reconfigure(errors="replace")
+    intact = args.mode == "intact"
+    sub = "real_intact" if intact else "real_candidates"
+    OUT = ROOT / "data" / "images" / sub
+    MANIFEST = ROOT / "data" / "seed" / f"{sub}.jsonl"
 
     OUT.mkdir(parents=True, exist_ok=True)
     seen = set()
@@ -58,9 +61,12 @@ def main() -> int:
         except ValueError:
             continue
         text = f"{rv.get('title', '')} {rv.get('text', '')}"
-        if not rv.get("images") or rv["rating"] > args.max_rating:
+        if not rv.get("images"):
             continue
-        if not (DAMAGE.search(text) and PACKAGE.search(text)):
+        if intact:
+            if rv["rating"] < 4 or DAMAGE.search(text) or not PACKAGE.search(text):
+                continue
+        elif rv["rating"] > args.max_rating or not (DAMAGE.search(text) and PACKAGE.search(text)):
             continue
         key = f"{rv['asin']}_{rv['user_id']}_{rv['timestamp']}"
         if key in seen:
@@ -76,11 +82,12 @@ def main() -> int:
                 resp.raise_for_status()
             except requests.RequestException:
                 continue
-            name = f"{args.category}_{key}_{i}.jpg"
+            name = f"{args.category}_{key}_{i}.jpg".replace("/", "_")
             (OUT / name).write_bytes(resp.content)
             with open(MANIFEST, "a", encoding="utf-8") as f:
-                f.write(json.dumps({"file": f"real_candidates/{name}", "review_key": key, "rating": rv["rating"],
-                                    "text": text[:400], "url": url, "category": args.category, "truth": "real_claimed_damage"},
+                f.write(json.dumps({"file": f"{sub}/{name}", "review_key": key, "rating": rv["rating"],
+                                    "text": text[:400], "url": url, "category": args.category,
+                                    "truth": "real_intact" if intact else "real_claimed_damage"},
                                    ensure_ascii=False) + "\n")
             saved += 1
         if not saved:
