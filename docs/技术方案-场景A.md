@@ -444,3 +444,7 @@ config/thresholds.yaml   # 所有阈值集中管理
 - 接入效果：`splice` 样例 `tamper=0.94`，bbox `[0.26,0.23,0.81,0.68]` 与真实编辑区 `[0.25,0.21,0.81,0.68]` 吻合；阴性 `tamper=0`。
 - 结论：两个像素取证模型（Community Forensics、TruFor）在压缩后的图上都接近失效，只能作为"高置信才加权"的弱证据；识别假图的主力仍是订单/物流/跨工单/话术一致性与补证流程。
 - 局限：14 张编辑样本、单一编辑模型、编辑区域小；压缩口径为模拟，非真实平台链路。
+
+### 13.3 评估页与来源标注
+- `GET /api/eval`（`backend/app/eval_summary.py`）只读 `data/eval/*.json` 汇总 VLM、Community Forensics、TruFor 三份结果和局限说明；前端"评估"页签展示。数字由 `scripts/eval_forensics.py`、`scripts/eval_tamper.py`（含压缩消融 `tamper_ablation.json`）生成，不在代码里写死。
+- 核验结果面板的"像素取证 / 图像内容"来源标签：S1 为 `取证模型`（真实推理）或 `回放`（演示工单占位图）；S2 为 `VLM` 或 `回放`。演示工单的占位图不是真实照片，S1 仍走回放。

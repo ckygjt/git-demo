@@ -4,8 +4,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
 
-from . import orchestrator
-from .config import settings
+from . import eval_summary, orchestrator
+from .config import settings, thresholds
 from .repo import repo
 from .fusion.disposition import ACTION_CN, VERDICT_CN
 
@@ -16,6 +16,11 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], all
 @app.get("/api/health")
 def health():
     return {"ok": True, "mode": "mock" if settings().mock else "llm", "providers": [p.name for p in settings().providers]}
+
+
+@app.get("/api/eval")
+def eval_results():
+    return {**eval_summary.summary(), "tamper_model_min": thresholds()["pixel"].get("tamper_model_min")}
 
 
 @app.get("/api/tickets")

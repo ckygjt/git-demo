@@ -60,3 +60,17 @@ h4 { font-size: 13px; color: var(--muted); margin-top: 16px; }
 .str { color: var(--muted); }
 .script { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 10px; font-size: 13px; }
 .meta { color: var(--muted); font-size: 11px; margin-top: 8px; }
+
+.tabs { display: flex; gap: 4px; margin-left: 16px; }
+.tabs button { background: transparent; color: #fff; border: 0; padding: 4px 12px; border-radius: 6px; cursor: pointer; opacity: .65; font: inherit; }
+.tabs button.on { background: #333; opacity: 1; }
+.src.model { color: var(--ok); } .src.mock { color: var(--warn); } .src.llm { color: var(--info); }
+.evalpage { max-width: 960px; margin: 0 auto; padding: 20px; }
+.evalpage h3 { margin: 24px 0 8px; }
+.evalpage table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 8px; font-size: 13px; }
+.evalpage th, .evalpage td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+.evalpage th { background: #fafbfd; color: var(--muted); font-weight: 600; }
+.evalpage tr.bad td { color: var(--bad); }
+.evalpage .note { color: var(--muted); font-size: 12px; margin: 6px 0 0; }
+.warnbox { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 14px; font-size: 13px; }
+.warnbox ul { margin: 6px 0 0; padding-left: 18px; }

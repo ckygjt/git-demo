@@ -93,7 +93,11 @@ def verify(ticket_id: str) -> Iterator[tuple[str, object]]:
         for k, (val, err, ms) in done.items():
             if err:
                 errors += 1
-            tools.append(ToolOutput(tool=k, source=k, ok=err is None, error=err, elapsed_ms=ms, mode=mode if k in ("S1", "S2") else "local"))
+            if k == "S1" and val:
+                tool_mode = "model" if any(m == "model" for _, m in val.values()) else "mock"
+            else:
+                tool_mode = mode if k in ("S1", "S2") else "local"
+            tools.append(ToolOutput(tool=k, source=k, ok=err is None, error=err, elapsed_ms=ms, mode=tool_mode))
             yield "event", StepEvent(step=f"tool_{k}", title=f"{k} {SOURCE_LABEL[k]}", status="error" if err else "done", elapsed_ms=ms, detail=err or "")
         v_res = done["S2"][0] or {}
         p_res = done["S1"][0] or {}

@@ -12,6 +12,14 @@ const SRC = {
   S7: "物流", S8: "账号", S9: "跨工单", S10: "产品知识", S11: "批次", S12: "补充证据",
 };
 const STRENGTH = { strong: "强", medium: "中", weak: "弱" };
+const TOOL_MODE = {
+  S1: { model: "取证模型", mock: "回放" },
+  S2: { llm: "VLM", mock: "回放" },
+};
+const SET_CN = { real_damaged: "真实破损", real_intact: "真实完好", fake_damaged: "AI 假破损" };
+const VARIANT_CN = {
+  raw: "原图(PNG)", resize768: "仅缩放 768", jpeg95: "JPEG q95", jpeg85: "JPEG q85", jpeg75: "JPEG q75", "resize768+jpeg85": "缩放 768 + JPEG q85",
+};
 
 const api = (p, o) => fetch(p, o).then((r) => r.json());
 
@@ -131,14 +139,83 @@ function Panel({ ticketId, onHover }) {
           <h4>建议话术</h4>
           <div className="script">{result.script}</div>
           <button className="btn ghost" onClick={() => navigator.clipboard.writeText(result.script)}>复制话术</button>
-          <div className="meta">模式 {result.mode} · 耗时 {result.elapsed_ms}ms</div>
+          <div className="meta">
+            模式 {result.mode} · 耗时 {result.elapsed_ms}ms
+            {Object.keys(TOOL_MODE).map((k) => {
+              const t = result.tools?.find((x) => x.tool === k);
+              return t ? <span key={k} className={`src ${t.mode}`}> · {SRC[k]}：{TOOL_MODE[k][t.mode] || t.mode}</span> : null;
+            })}
+          </div>
         </div>
       )}
     </aside>
   );
 }
 
+const fmt = (v, d = 2) => (v === null || v === undefined ? "-" : Number(v).toFixed(d));
+
+function EvalPage() {
+  const [d, setD] = useState(null);
+  useEffect(() => { api("/api/eval").then(setD); }, []);
+  if (!d) return <div className="evalpage">加载中…</div>;
+  if (!d.available) return <div className="evalpage">尚无评测结果，请先运行 scripts/ 下的评测脚本。</div>;
+  const { vlm, aigc, tamper, limitations } = d;
+  return (
+    <div className="evalpage">
+      <h2>离线评测基线</h2>
+      <div className="warnbox">
+        <b>局限与结论</b>
+        <ul>{limitations.map((x, i) => <li key={i}>{x}</li>)}</ul>
+      </div>
+
+      {vlm && (
+        <>
+          <h3>VLM 图像描述（零样本）</h3>
+          <table>
+            <thead><tr><th>集合</th><th>样本</th><th>调用成功</th><th>报出破损</th><th>判为 AI</th><th>ai_prob 均值</th></tr></thead>
+            <tbody>{vlm.map((r) => (
+              <tr key={r.set}><td>{SET_CN[r.set] || r.set}</td><td>{r.n}</td><td>{r.vision_ok}</td><td>{r.reported_damage}/{r.vision_ok}</td><td>{r.ai_flagged}</td><td>{fmt(r.ai_prob_mean)}</td></tr>
+            ))}</tbody>
+          </table>
+          <p className="note">VLM 能描述破损，但无法区分 AI 假图与真图，所以需要独立取证与交叉验证。</p>
+        </>
+      )}
+
+      {aigc && (
+        <>
+          <h3>S1a 整图 AIGC 检测（Community Forensics）</h3>
+          <table>
+            <thead><tr><th>口径</th><th>AUC</th><th>真图最高分</th><th>假图均值</th><th>假图检出@0.5</th><th>真图误报@0.5</th></tr></thead>
+            <tbody>{[["raw", "原图"], ["norm", "缩放 768 + JPEG q85"]].map(([m, label]) => {
+              const r = aigc.modes[m];
+              return <tr key={m}><td>{label}</td><td>{fmt(r.auc, 3)}</td><td>{fmt(r.real_max, 3)}</td><td>{fmt(r.fake_mean, 3)}</td><td>{r["fake_detected@0.5"]}/{aigc.n_fake}</td><td>{r["real_false_pos@0.5"]}/{aigc.n_real}</td></tr>;
+            })}</tbody>
+          </table>
+          <p className="note">原图口径的高 AUC 可能含 PNG/JPEG 格式泄漏；以压缩口径为准。</p>
+        </>
+      )}
+
+      {tamper && (
+        <>
+          <h3>S1b 局部篡改检测（TruFor）</h3>
+          <table>
+            <thead><tr><th>输入处理</th><th>AUC（完好底图 vs 局部拼接）</th><th>拼接均值</th><th>拼接≥0.9</th><th>底图≥0.9</th></tr></thead>
+            <tbody>{tamper.ablation.map((r) => (
+              <tr key={r.variant} className={r.auc < 0.6 ? "bad" : ""}><td>{VARIANT_CN[r.variant] || r.variant}</td><td>{fmt(r.auc, 3)}</td><td>{fmt(r.pos_mean)}</td><td>{r["pos_ge_0.9"]}/{r.n}</td><td>{r["neg_ge_0.9"]}/{r.n}</td></tr>
+            ))}</tbody>
+          </table>
+          <p className="note">
+            {tamper.real_false_pos.raw.n} 张原生真图中，TruFor 分数 ≥0.55 有 {tamper.real_false_pos.raw[">=0.55"]} 张、≥0.80 有 {tamper.real_false_pos.raw[">=0.8"]} 张、≥0.90 有 {tamper.real_false_pos.raw[">=0.9"]} 张，
+            因此模型分数低于 {d.tamper_model_min} 一律记 0。整图重绘类假图 TruFor 无效（AUC {fmt(tamper.auc.raw.base_vs_full, 2)}）。
+          </p>
+        </>
+      )}
+    </div>
+  );
+}
+
 export default function App() {
+  const [tab, setTab] = useState("tickets");
   const [list, setList] = useState([]);
   const [sel, setSel] = useState(null);
   const [detail, setDetail] = useState(null);
@@ -159,9 +236,14 @@ export default function App() {
       <header>
         <div className="logo">TruthGuard</div>
         <div className="sub">售后客诉证据鉴真 Agent</div>
+        <div className="tabs">
+          <button className={tab === "tickets" ? "on" : ""} onClick={() => setTab("tickets")}>工单核验</button>
+          <button className={tab === "eval" ? "on" : ""} onClick={() => setTab("eval")}>评估</button>
+        </div>
         <div className="spacer" />
         {health && <span className={`mode ${health.mode}`}>{health.mode === "mock" ? "Mock 模式" : `模型：${health.providers.join(",")}`}</span>}
       </header>
+      {tab === "eval" ? <EvalPage /> : (
       <main>
         <nav className="list">
           <h3>待处理仅退款工单</h3>
@@ -204,6 +286,7 @@ export default function App() {
 
         {sel && <Panel ticketId={sel} onHover={setHover} />}
       </main>
+      )}
     </div>
   );
 }

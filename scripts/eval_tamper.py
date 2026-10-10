@@ -34,6 +34,40 @@ def load_all() -> dict[str, list[Path]]:
     return {k: [p for p in v if p.exists()] for k, v in sets.items()}
 
 
+def _jpeg(im: Image.Image, q: int) -> Image.Image:
+    b = io.BytesIO()
+    im.save(b, "JPEG", quality=q)
+    b.seek(0)
+    return Image.open(b).convert("RGB")
+
+
+def _resize(im: Image.Image, s: int) -> Image.Image:
+    im = im.copy()
+    im.thumbnail((s, s), Image.LANCZOS)
+    return im
+
+
+VARIANTS = {
+    "raw": lambda im: im,
+    "resize768": lambda im: _resize(im, 768),
+    "jpeg95": lambda im: _jpeg(im, 95),
+    "jpeg85": lambda im: _jpeg(im, 85),
+    "jpeg75": lambda im: _jpeg(im, 75),
+    "resize768+jpeg85": lambda im: _jpeg(_resize(im, 768), 85),
+}
+
+
+def ablation(sets: dict[str, list[Path]]) -> list[dict]:
+    """TruFor 对压缩/缩放的敏感度：阴性 edit_base vs 阳性 edit_splice（配对）。"""
+    out = []
+    for name, f in VARIANTS.items():
+        neg = [forensics_tamper.predict(f(Image.open(p).convert("RGB")))["score"] for p in sets["edit_base"]]
+        pos = [forensics_tamper.predict(f(Image.open(p).convert("RGB")))["score"] for p in sets["edit_splice"]]
+        out.append({"variant": name, "auc": auc(neg, pos), "neg_mean": sum(neg) / len(neg), "pos_mean": sum(pos) / len(pos),
+                    "pos_ge_0.9": sum(x >= 0.9 for x in pos), "neg_ge_0.9": sum(x >= 0.9 for x in neg), "n": len(pos)})
+    return out
+
+
 def main() -> int:
     sys.stdout.reconfigure(errors="replace")
     use_t, use_a = forensics_tamper.available(), forensics_aigc.available()
@@ -76,6 +110,12 @@ def main() -> int:
         print(f"  AUC 配对(base vs full)   = {auc(g('edit_base', key), g('edit_full', key)):.3f}")
         print(f"  AUC 配对(base vs splice) = {auc(g('edit_base', key), g('edit_splice', key)):.3f}")
         print(f"  AUC 原生真图 vs splice   = {auc(native, g('edit_splice', key)):.3f}")
+    if use_t:
+        ab = ablation(sets)
+        (out / "tamper_ablation.json").write_text(json.dumps(ab, indent=1), encoding="utf-8")
+        print("\n== TruFor 压缩消融 (base vs splice) ==")
+        for r in ab:
+            print(f"  {r['variant']:18s} AUC={r['auc']:.3f} splice>=0.9:{r['pos_ge_0.9']}/{r['n']} base>=0.9:{r['neg_ge_0.9']}/{r['n']}")
     return 0
 
 
