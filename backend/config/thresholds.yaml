@@ -11,6 +11,7 @@ pixel:
   aigc_medium: 0.60
   tamper_strong: 0.80             # 篡改完整性分 >= 视为强信号
   tamper_medium: 0.55
+  tamper_model_min: 0.90          # 真实模型(TruFor)分数低于此值一律记 0；47 张真图在 0.9 下零误报，0.55/0.80 会误报 5/47
   screenshot_discount: 0.15       # 截图/重压缩时分数下调
 
 dup:

@@ -5,9 +5,9 @@ Mock 模式读取 data/seed/fixtures 回放；真实模式调用 VLM，失败则
 import json
 from functools import lru_cache
 
-from ..config import FIXTURES
+from ..config import FIXTURES, thresholds
 from ..llm.router import chat_json
-from . import forensics_aigc
+from . import forensics_aigc, forensics_tamper
 
 ISSUE_ENUM = {"outer_box_damage", "container_crack", "pump_broken", "leak", "missing_item", "wrong_item", "quality", "other"}
 CONTAINER_ENUM = {"glass_bottle", "plastic_bottle", "plastic_tube", "glass_jar", "aluminum_tube", None}
@@ -49,15 +49,29 @@ def vision(image_name: str, b: bytes) -> tuple[dict | None, str, dict]:
 
 
 def pixel(image_name: str, b: bytes) -> tuple[dict | None, str]:
-    """有回放数据的演示图走回放（占位图不是真实照片）；其余图在模型可用时跑 Community Forensics。
-    真实检测只给出 aigc 分数；低分不产出证据（见 crosscheck.x1_pixel），不能用于"证明为真"。"""
+    """有回放数据的演示图走回放（占位图不是真实照片）；其余图在模型可用时跑
+    Community Forensics（aigc）与 TruFor（tamper，仅限非商业用途，且 < tamper_model_min 记 0）。
+    低分不产出证据（见 crosscheck.x1_pixel），不能用于"证明为真"。"""
     fx = _fixture("pixel.json").get(image_name)
     if fx:
         return dict(fx), "mock"
+    res = {"aigc": 0, "tamper": 0, "bbox": None, "region_label": None, "physics": []}
+    ran = False
     if forensics_aigc.available():
         try:
-            return {"aigc": round(forensics_aigc.predict(b), 4), "tamper": 0, "bbox": None,
-                    "region_label": None, "physics": []}, "model"
+            res["aigc"] = round(forensics_aigc.predict(b), 4)
+            ran = True
         except Exception:  # noqa: BLE001
-            return None, "mock"
-    return None, "mock"
+            pass
+    if forensics_tamper.available():
+        try:
+            r = forensics_tamper.predict(b)
+            ran = True
+            if r["score"] >= thresholds()["pixel"]["tamper_model_min"]:
+                res["tamper"] = round(r["score"], 4)
+                bb = r["bbox"]
+                if bb and (bb[2] - bb[0]) * (bb[3] - bb[1]) < 0.6:
+                    res["bbox"] = bb
+        except Exception:  # noqa: BLE001
+            pass
+    return (res, "model") if ran else (None, "mock")
