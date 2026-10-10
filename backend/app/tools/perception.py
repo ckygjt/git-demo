@@ -7,6 +7,7 @@ from functools import lru_cache
 
 from ..config import FIXTURES
 from ..llm.router import chat_json
+from . import forensics_aigc
 
 ISSUE_ENUM = {"outer_box_damage", "container_crack", "pump_broken", "leak", "missing_item", "wrong_item", "quality", "other"}
 CONTAINER_ENUM = {"glass_bottle", "plastic_bottle", "plastic_tube", "glass_jar", "aluminum_tube", None}
@@ -48,6 +49,15 @@ def vision(image_name: str, b: bytes) -> tuple[dict | None, str, dict]:
 
 
 def pixel(image_name: str, b: bytes) -> tuple[dict | None, str]:
-    """P0：回放取证结果。P3 接入 Community Forensics（AIGC）+ TruFor（定位）+ ELA 兜底。"""
+    """有回放数据的演示图走回放（占位图不是真实照片）；其余图在模型可用时跑 Community Forensics。
+    真实检测只给出 aigc 分数；低分不产出证据（见 crosscheck.x1_pixel），不能用于"证明为真"。"""
     fx = _fixture("pixel.json").get(image_name)
-    return (dict(fx) if fx else None), "mock"
+    if fx:
+        return dict(fx), "mock"
+    if forensics_aigc.available():
+        try:
+            return {"aigc": round(forensics_aigc.predict(b), 4), "tamper": 0, "bbox": None,
+                    "region_label": None, "physics": []}, "model"
+        except Exception:  # noqa: BLE001
+            return None, "mock"
+    return None, "mock"
