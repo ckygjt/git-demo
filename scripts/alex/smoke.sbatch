@@ -4,10 +4,10 @@
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 #SBATCH --time=00:30:00
-#SBATCH --output=/anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/edit2/logs/%x-%j.out
-#SBATCH --error=/anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/edit2/logs/%x-%j.err
+#SBATCH --output=/anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/drag/edit2/logs/%x-%j.out
+#SBATCH --error=/anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/drag/edit2/logs/%x-%j.err
 set -e
-WS=/anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/edit2
+WS=/anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/drag/edit2
 source /anvme/workspace/b240dd18-dataset/conda/etc/profile.d/conda.sh
 conda activate $WS/env
 export HF_HOME=$WS/weights TORCH_HOME=$WS/weights/torch XDG_CACHE_HOME=$WS/weights/xdg

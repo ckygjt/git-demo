@@ -4,7 +4,7 @@
 **每一步都先经用户批准再执行；命令只在对应位置（本机 / 登录节点 / 提交 sbatch）逐条粘贴，不要把多条混着粘。**
 
 ## 约定值（均为实际值）
-- 工作目录：`/anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/edit2`（下称 `$WS`，子目录 `env/ weights/ inputs/ code/ out/ logs/`）
+- 工作目录：`/anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/drag/edit2`（下称 `$WS`，子目录 `env/ weights/ inputs/ code/ out/ logs/`）
 - conda：`/anvme/workspace/b240dd18-dataset/conda/etc/profile.d/conda.sh`（S0 会核对此文件是否存在）
 - 任务名：冒烟 `15-g1`，全量 `15-g2`（序号 `15-` 待用户对照团队表格确认；不含方向/模型/数据集名）
 - sbatch：partition `a100`，`--gres=gpu:1`，`--cpus-per-task=8`，**不加 `--mem`**（按用户在 alex 上的经验），日志在 `$WS/logs/`
@@ -27,9 +27,9 @@ df -h /anvme/workspace/b240dd18-data_store | tail -1
 du -sh /anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/drag/weights
 du -sh /home/hpc/b240dd/b240dd18
 ls /anvme/workspace/b240dd18-dataset/conda/etc/profile.d/conda.sh
-ls /anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit
+ls /anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/drag
 ```
-贴回：五条输出。通过标准：`$WS` 所在盘剩余空间大于 60GB；conda.sh 存在；`edit/` 下没有 `edit2`。
+贴回：五条输出。通过标准：`$WS` 所在盘剩余空间大于 60GB；conda.sh 存在；`edit/drag/` 下没有 `edit2`（它是 `drag` 下的独立子目录，与 `env/ code/ scripts/ weights/` 并列，不会改动它们）。
 
 ## S1 本机打包并上传（Windows PowerShell，在仓库根目录）
 前提：`pip install huggingface_hub`，并已在本机执行 `huggingface-cli login`（token 只在你的终端输入）。
@@ -43,7 +43,7 @@ python scripts/hf_edit2_transfer.py up
 ## S2 建环境（登录节点，联网）
 依次粘贴，一条一回车：
 ```bash
-export WS=/anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/edit2
+export WS=/anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/drag/edit2
 mkdir -p $WS/weights $WS/inputs $WS/code $WS/out $WS/logs
 source /anvme/workspace/b240dd18-dataset/conda/etc/profile.d/conda.sh
 conda create -p $WS/env python=3.10 -y
@@ -106,7 +106,7 @@ sbatch full.sbatch
 ## S6 回传
 登录节点：
 ```bash
-export WS=/anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/edit2
+export WS=/anvme/workspace/b240dd18-data_store/runtime/spaces/a6eac70923360ffe/edit/drag/edit2
 tar -cf $WS/out/edit2_outputs.tar -C $WS/inputs/images edit2 -C $WS/out edit2_manifest.jsonl
 python -c "import os; from huggingface_hub import HfApi; HfApi().upload_file(path_or_fileobj='$WS/out/edit2_outputs.tar', path_in_repo='outputs/edit2_outputs.tar', repo_id=os.environ['HFU']+'/edit2-tamper-eval', repo_type='dataset')"
 ```
