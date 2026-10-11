@@ -49,6 +49,7 @@ function Evidence({ e, onHover }) {
         <span className="rule">{e.rule}</span>
       </div>
       <div>{e.summary}</div>
+      {/^X1_(aigc|tamper)/.test(e.rule) && <div className="hint">取证模型对压缩/截图图片不敏感，仅高分才作弱证据加权。</div>}
     </li>
   );
 }
@@ -129,6 +130,9 @@ function Panel({ ticketId, onHover }) {
 
           <h4>证据链</h4>
           <ul className="evs">{result.evidence.map((e) => <Evidence key={e.id} e={e} onHover={onHover} />)}</ul>
+          {result.tools?.some((t) => t.tool === "S1") && (
+            <p className="hint">像素取证只在高置信时产出证据：未检出异常不代表图片为真，图片被压缩后检出能力显著下降（详见“评估”页）。</p>
+          )}
           {result.flags.length > 0 && (
             <>
               <h4>备注 / 弱信号（不影响结论）</h4>
